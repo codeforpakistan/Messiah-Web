@@ -70,7 +70,7 @@
 					</ul>
 				</nav>
 			</div>
-	</header>
+</header>
         <span id="work"></span>
 		<!-- End Header -->
         <!-- Start Accordion/Toggle Section -->
@@ -93,7 +93,7 @@
                                 <span class="clearfix">During emergencies one have no or very minimal time to call or text someone. </span>
                                 <span class="clearfix">This application when installed, asks the user to set up his emergency contacts and the message to send to those contacts incase of an emergency.</span> 
                                 <span class="clearfix">Following are the major three fuctionalities of Messiah App</span>
-                                <span class="clearfix"><ul>1. Emergency Group Messaging </ul><ul>2. Car Accident Reporting</ul></span>
+                                <span class="clearfix"><ul>1. Emergency Group Messaging </ul><ul>2. Car Accident Reporting</ul><ul>3. Completly works offline</ul></span>
                             </div>
                         </div>
                     </div>
@@ -125,9 +125,9 @@
 								});
                                 </script>
                                 <div class="slick-slideshow">
-                                	<div class="multiple"><div class="image"><img src="_include/images/fonz1.png"/></div></div>
-                                    <div class="multiple"><div class="image"><img src="_include/images/fonz2.png"/></div></div>
-                                    <div class="multiple"><div class="image"><img src="_include/images/fonz3.png"/></div></div>
+                                	<div class="multiple"><div class="image"><img src="_include/images/1.png"/></div></div>
+                                    <div class="multiple"><div class="image"><img src="_include/images/2.png"/></div></div>
+                                    <div class="multiple"><div class="image"><img src="_include/images/3.png"/></div></div>
                                 </div>
                             </div>
                         </div>
@@ -153,7 +153,7 @@
 		<!-- People -->
 		<div class="row">
     		<!-- Start Profile -->
-			<div class="span4 profile">
+			<div class="span3 profile">
 				<div class="image-wrap">
 					<div class="hover-wrap">
 						<span class="overlay-img"></span>
@@ -176,7 +176,7 @@
 			</div>
 			<!-- End Profile -->
 			<!-- Start Profile -->
-			<div class="span4 profile">
+			<div class="span3 profile">
 				<div class="image-wrap">
 					<div class="hover-wrap">
 						<span class="overlay-img"></span>
@@ -201,7 +201,7 @@ He loves to mess around with his hair. And is a passionate photographer.</p>
 			</div>
 			<!-- End Profile -->
 			<!-- Start Profile -->
-			<div class="span4 profile">
+			<div class="span3 profile">
 				<div class="image-wrap">
 					<div class="hover-wrap">
 						<span class="overlay-img"></span>
@@ -210,7 +210,7 @@ He loves to mess around with his hair. And is a passionate photographer.</p>
 					<img src="_include/images/profile/profile-03.jpg" alt="Joshua Insanus">
 				</div>
 				<h3 class="profile-name">Mubassir Hayat</h3>
-				<p class="profile-description">Mubassir Hayat is a web, app developer and designer with a special interest in building custom API. Mubassir has worked at the nonprofit organization Computer Cell and contributes to several open source projects. Mubassir just wrapped up his summer 2013 <a href="http://www.sprint-oildfieldservices-mms.com" title="Project" target="_blank">Sprint - Oil Field Services</a> project</p>
+				<p class="profile-description">Mubassir Hayat is a web, app developer and designer with a special interest in building custom API's. Mubassir has worked at the nonprofit organization Computer Cell and has contributed to several open source projects. Mubassir just wrapped up his summer 2013 <a href="http://www.sprint-oildfieldservices-mms.com" title="Project" target="_blank">Sprint - Oil Field Services</a> project.</p>
 				<div class="social">
 					<ul class="social-icons">
 						<li><a href="https://twitter.com/MubassirHayat"><i class="font-icon-social-twitter"></i></a></li>
@@ -219,6 +219,29 @@ He loves to mess around with his hair. And is a passionate photographer.</p>
 						<li><a href="http://www.linkedin.com/profile/view?id=320750479"><i class="font-icon-social-linkedin"></i></a></li>
 						<li><a href="https://github.com/mubassirhayat"><i class="font-icon-social-github"></i></a></li>
 						<li><a href="mailto:mubassirhayat@gmail.com"><i class="font-icon-social-email"></i></a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- End Profile -->
+            <!-- Start Profile -->
+			<div class="span3 profile">
+				<div class="image-wrap">
+					<div class="hover-wrap">
+						<span class="overlay-img"></span>
+						<span class="overlay-text-thumb">Front End Developer</span>
+					</div>
+					<img src="_include/images/profile/profile-04.jpg" alt="Joshua Insanus">
+				</div>
+				<h3 class="profile-name">Khwaja Bilal Hassan</h3>
+				<p class="profile-description">Khwaja Bilal Hassan is a computer scientist. He has development experience, knowledge of web design, development and SEO best practices.</p>
+				<div class="social">
+					<ul class="social-icons">
+						<li><a href="https://twitter.com/khwbilal"><i class="font-icon-social-twitter"></i></a></li>
+						<li><a href="http://facebook.com/khwajabilal.hassan"><i class="font-icon-social-facebook"></i></a></li>
+						<li><a href="https://plus.google.com/117759326434557023460/posts"><i class="font-icon-social-google-plus"></i></a></li>
+						<li><a href="http://www.linkedin.com/profile/view?id=326753094"><i class="font-icon-social-linkedin"></i></a></li>
+						<li><a href="https://github.com/khwajabilal"><i class="font-icon-social-github"></i></a></li>
+						<li><a href="mailto:khw.bilal.93@gmail.com"><i class="font-icon-social-email"></i></a></li>
 					</ul>
 				</div>
 			</div>
