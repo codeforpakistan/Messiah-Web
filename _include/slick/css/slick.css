@@ -15,9 +15,9 @@
 /* Loading States */
 
 .slick-loading .slick-track { visibility: hidden; }
-.slick-loading .slick-list { background: #fff url(../../img/ajax-loader.gif) center center no-repeat; }
+.slick-loading .slick-list { background: #fff url(../img/ajax-loader.gif) center center no-repeat; }
 .slick-loading .slick-slide { visibility: hidden; }
-.slick-slide.loading { background:  url(../../img/ajax-loader.gif) center center no-repeat; position: relative;}
+.slick-slide.loading { background:  url(../img/ajax-loader.gif) center center no-repeat; position: relative;}
 
 /* Icons */
 
