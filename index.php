@@ -142,8 +142,7 @@
                 <div class="row">
                     <div class="span12">
 						<!-- Start Blockquote -->
-							<div class="span12">
-							<h3 class="spec">About Messiah</h3>
+							<h3 class="spec" align="center">About Messiah</h3>
 							<blockquote>
 								<p>Messiah is an application which has not been developed for a lone person, specific community, particular area or a distinct country. It is for each and every human being in the world because "YOUR LIFE IS PRECIOUS".
 Basically Messiah is an emergency alert messenger which in case of mishaps helps a user to tell his loved ones about his location and his condition(either safe or injured). In case of emergencies one has very minimal time to tell or convey that he/she is in danger. Through Messiah now letting your friends and family know that you are in danger in just a single button press away. As soon as the application is installed the interface asks the user to setup his emergency contacts and the respective messages to send to them. As soon as the user is in danger he opens the application and just presses a single button. Now with that single button press the message is sent to the predefined set of contacts with the current location.
@@ -157,9 +156,7 @@ Another feature is the accident detection mode. When a user sets off for a drive
                                                 <div align="center"><img src="_include/images/slick-slider/1.png"></div>
                                                 <div align="center"><img src="_include/images/slick-slider/2.png"></div>
                                                 <div align="center"><img src="_include/images/slick-slider/3.png"></div>
-                                                <div align="center"><img src="_include/images/slick-slider/4.png"></div>
                                                 <div align="center"><img src="_include/images/slick-slider/5.png"></div>
-                                                <div align="center"><img src="_include/images/slick-slider/6.png"></div>
                                                 <div align="center"><img src="_include/images/slick-slider/7.png"></div>
                                                 <div align="center"><img src="_include/images/slick-slider/8.png"></div>
                                                 <div align="center"><img src="_include/images/slick-slider/9.png"></div>
@@ -176,7 +173,6 @@ Another feature is the accident detection mode. When a user sets off for a drive
 									</script>
                                 </p>
 							</blockquote>
-						</div>
 						<!-- End Blockquote -->
                     </div>
                 </div>
