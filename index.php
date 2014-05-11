@@ -74,7 +74,7 @@
                 <nav id="menu">
                     <ul id="menu-nav">
                         <li class="current"><a href="#home-slider">HOME</a></li>
-                        <li><a href="http://www.4shared.com/mobile/O2XTkn0kce/Messiah.html">DOWNLOAD</a></li>
+                        <li><a class="external" href="http://www.4shared.com/mobile/O2XTkn0kce/Messiah.html" target="_blank">DOWNLOAD</a></li>
                         <li><a href="#work">ABOUT MESSIAH</a></li>
 						<li><a href="#about">ABOUT US</a></li>
 						<li><a href="#contact">CONTACT</a></li>
@@ -145,7 +145,9 @@
 							<div class="span12">
 							<h3 class="spec">About Messiah</h3>
 							<blockquote>
-								<p>MESSIAH is an emergency alert messenger which in case of mishaps helps a user to tell his loved ones about his location and his condition(either safe or injured). In case of emergencies one has very minimal time to tell or convey that he/she is in danger. Through Messiah now letting your friends and family know that you are in danger in just a single button press away. As soon as the application is installed the interface asks the user to setup his emergency contacts and the respective messages to send to them. As soon as the user is in danger he opens the application and just presses a single button. Now with that single button press the message is sent to the predefined set of contacts with the current location. Another feature is the accident detection mode. When a user sets off for a drive he/she turns ON this mode. And during the journey God forbid if he/she comes across any accident and the sensors of the phone detects a jerk corresponding to an accident the phone starts beeping and the user is asked whether everything is OK? and if the user does not respond to the prompt within 30 seconds the message is automatically sent.</p>
+								<p>Messiah is an application which has not been developed for a lone person, specific community, particular area or a distinct country. It is for each and every human being in the world because "YOUR LIFE IS PRECIOUS".
+Basically Messiah is an emergency alert messenger which in case of mishaps helps a user to tell his loved ones about his location and his condition(either safe or injured). In case of emergencies one has very minimal time to tell or convey that he/she is in danger. Through Messiah now letting your friends and family know that you are in danger in just a single button press away. As soon as the application is installed the interface asks the user to setup his emergency contacts and the respective messages to send to them. As soon as the user is in danger he opens the application and just presses a single button. Now with that single button press the message is sent to the predefined set of contacts with the current location.
+Another feature is the accident detection mode. When a user sets off for a drive he/she turns ON this mode. And during the journey God forbid if he/she comes across any accident and the sensors of the phone detects a jerk corresponding to an accident the phone starts beeping and the user is asked whether everything is OK? and if the user does not respond to the prompt within 30 seconds the message is automatically sent.</p>
 								<small><cite title="John Bostic">Messiah Team</cite></small>
                                 <p>
 									<section>
@@ -181,15 +183,17 @@
 				<!-- End Accordion/Toggle Section -->
                 <div class="row">
 					<!-- Start Video -->
-					<div class="span6">
+					<div class="span12">
 						<h3 class="spec">A Demo on how to use the Application</h3>
 						<div class="video-container">
 							<iframe src="//player.vimeo.com/video/94823030" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="http://vimeo.com/94823030">Messiah</a> from <a href="http://vimeo.com/user27891796">Ebtihaj Khan</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 						</div>
 					</div>	
+                    <hr>
 					<!-- End Video -->
+                    <div class="clearfix"></div>
 					<!-- Start Video -->
-					<div class="span6">
+					<div class="span12">
 						<h3 class="spec">What is Messiah?</h3>
 						<div class="video-container">
 							<iframe src="//player.vimeo.com/video/93135474" width="500" height="280" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="http://vimeo.com/93135474">Messiah Emergency alert messenger</a> from <a href="http://vimeo.com/user27420186">Zahid Ali</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
