@@ -85,64 +85,13 @@
         <!-- End Header -->
         <div id="work" class="page">
             <div class="container">
-                <!-- Start Accordion/Toggle Section -->
-                <div class="row">
-                    <div class="span12">
-						<!-- Start Blockquote -->
-							<div class="span12">
-							<h3 class="spec">About Messiah</h3>
-							<blockquote>
-								<p>MESSIAH is an emergency alert messenger which in case of mishaps helps a user to tell his loved ones about his location and his condition(either safe or injured). In case of emergencies one has very minimal time to tell or convey that he/she is in danger. Through Messiah now letting your friends and family know that you are in danger in just a single button press away. As soon as the application is installed the interface asks the user to setup his emergency contacts and the respective messages to send to them. As soon as the user is in danger he opens the application and just presses a single button. Now with that single button press the message is sent to the predefined set of contacts with the current location. Another feature is the accident detection mode. When a user sets off for a drive he/she turns ON this mode. And during the journey God forbid if he/she comes across any accident and the sensors of the phone detects a jerk corresponding to an accident the phone starts beeping and the user is asked whether everything is OK? and if the user does not respond to the prompt within 30 seconds the message is automatically sent.</p>
-								<small><cite title="John Bostic">Messiah Team</cite></small>
-                                <p>
-									<section>
-										<div class="content">
-											<h2>Snapshots</h2>
-                                            <div class="slick-slider single-item">
-                                                <div align="center"><img src="_include/images/slick-slider/1.png"></div>
-                                                <div align="center"><img src="_include/images/slick-slider/2.png"></div>
-                                                <div align="center"><img src="_include/images/slick-slider/3.png"></div>
-                                                <div align="center"><img src="_include/images/slick-slider/4.png"></div>
-                                                <div align="center"><img src="_include/images/slick-slider/5.png"></div>
-                                                <div align="center"><img src="_include/images/slick-slider/6.png"></div>
-                                                <div align="center"><img src="_include/images/slick-slider/7.png"></div>
-                                                <div align="center"><img src="_include/images/slick-slider/8.png"></div>
-                                                <div align="center"><img src="_include/images/slick-slider/9.png"></div>
-                                                <div align="center"><img src="_include/images/slick-slider/10.png"></div>
-                                                <div align="center"><img src="_include/images/slick-slider/11.png"></div>
-                                                <div align="center"><img src="_include/images/slick-slider/12.png"></div>
-                                                <div align="center"><img src="_include/images/slick-slider/13.png"></div>
-                                                <div align="center"><img src="_include/images/slick-slider/14.png"></div>
-                                            </div>
-										</div>
-									</section>
-									<script type="text/javascript">
-										$('.single-item').slick();
-									</script>
-                                </p>
-							</blockquote>
-						</div>
-						<!-- End Blockquote -->
-                    </div>
-                </div>
-				<!-- End Accordion/Toggle Section -->
                 <!-- Start BlockQuote/Tooltip Section -->
 				<div class="row">
-					<!-- Start Blockquote -->
-					<div class="span12">
-						<blockquote>
-							<p align="center">
-                            	<div class="fb-like-box" data-href="https://www.facebook.com/MessiahApp" data-width="900" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="true" data-show-border="false"></div>
-                            </p>
-						</blockquote>
-					</div>
-					<!-- End Blockquote -->
-                    <hr>
 					<!-- Start Blockquote -->
 					<div class="span3">
 						<blockquote>
 							<p>
-                            	<a href="https://twitter.com/intent/tweet?screen_name=MessiahApp&text=Spread%20the%20word%20%40Code4Resilience" class="twitter-mention-button" data-size="large" data-related="MessiahApp,Code4Resilience" data-dnt="true">Tweet to @MessiahApp</a>
+                            	<a href="https://twitter.com/intent/tweet?screen_name=MessiahApp&text=%23MessiahApp%20Spread%20the%20word%20%40Code4Resilience" class="twitter-mention-button" data-size="large" data-related="MessiahApp,Code4Resilience" data-dnt="true">Tweet to @MessiahApp</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                             </p>
 						</blockquote>
@@ -178,9 +127,77 @@
 						</blockquote>
 					</div>
 					<!-- End Blockquote -->
+                    <!-- Start Blockquote -->
+					<div class="span12" align="center">
+						<blockquote>
+							<p>
+                            	<div class="fb-like-box" data-href="https://www.facebook.com/MessiahApp" data-width="900" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="true" data-show-border="false"></div>
+                            </p>
+						</blockquote>
+					</div>
+					<!-- End Blockquote -->
 				</div>
 				<!-- End BlockQuote/Tooltip Section -->
-				<!-- About Section -->
+				<!-- Start Accordion/Toggle Section -->
+                <div class="row">
+                    <div class="span12">
+						<!-- Start Blockquote -->
+							<div class="span12">
+							<h3 class="spec">About Messiah</h3>
+							<blockquote>
+								<p>MESSIAH is an emergency alert messenger which in case of mishaps helps a user to tell his loved ones about his location and his condition(either safe or injured). In case of emergencies one has very minimal time to tell or convey that he/she is in danger. Through Messiah now letting your friends and family know that you are in danger in just a single button press away. As soon as the application is installed the interface asks the user to setup his emergency contacts and the respective messages to send to them. As soon as the user is in danger he opens the application and just presses a single button. Now with that single button press the message is sent to the predefined set of contacts with the current location. Another feature is the accident detection mode. When a user sets off for a drive he/she turns ON this mode. And during the journey God forbid if he/she comes across any accident and the sensors of the phone detects a jerk corresponding to an accident the phone starts beeping and the user is asked whether everything is OK? and if the user does not respond to the prompt within 30 seconds the message is automatically sent.</p>
+								<small><cite title="John Bostic">Messiah Team</cite></small>
+                                <p>
+									<section>
+										<div class="content">
+											<h2 align="center">Snapshots</h2>
+                                            <div class="slick-slider single-item">
+                                                <div align="center"><img src="_include/images/slick-slider/1.png"></div>
+                                                <div align="center"><img src="_include/images/slick-slider/2.png"></div>
+                                                <div align="center"><img src="_include/images/slick-slider/3.png"></div>
+                                                <div align="center"><img src="_include/images/slick-slider/4.png"></div>
+                                                <div align="center"><img src="_include/images/slick-slider/5.png"></div>
+                                                <div align="center"><img src="_include/images/slick-slider/6.png"></div>
+                                                <div align="center"><img src="_include/images/slick-slider/7.png"></div>
+                                                <div align="center"><img src="_include/images/slick-slider/8.png"></div>
+                                                <div align="center"><img src="_include/images/slick-slider/9.png"></div>
+                                                <div align="center"><img src="_include/images/slick-slider/10.png"></div>
+                                                <div align="center"><img src="_include/images/slick-slider/11.png"></div>
+                                                <div align="center"><img src="_include/images/slick-slider/12.png"></div>
+                                                <div align="center"><img src="_include/images/slick-slider/13.png"></div>
+                                                <div align="center"><img src="_include/images/slick-slider/14.png"></div>
+                                            </div>
+										</div>
+									</section>
+									<script type="text/javascript">
+										$('.single-item').slick();
+									</script>
+                                </p>
+							</blockquote>
+						</div>
+						<!-- End Blockquote -->
+                    </div>
+                </div>
+				<!-- End Accordion/Toggle Section -->
+                <div class="row">
+					<!-- Start Video -->
+					<div class="span6">
+						<h3 class="spec">A Demo on how to use the Application</h3>
+						<div class="video-container">
+							<iframe src="//player.vimeo.com/video/94823030" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="http://vimeo.com/94823030">Messiah</a> from <a href="http://vimeo.com/user27891796">Ebtihaj Khan</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+						</div>
+					</div>	
+					<!-- End Video -->
+					<!-- Start Video -->
+					<div class="span6">
+						<h3 class="spec">What is Messiah?</h3>
+						<div class="video-container">
+							<iframe src="//player.vimeo.com/video/93135474" width="500" height="280" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="http://vimeo.com/93135474">Messiah Emergency alert messenger</a> from <a href="http://vimeo.com/user27420186">Zahid Ali</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+						</div>
+					</div>	
+					<!-- End Video -->
+				</div>
+        		<!-- About Section -->
 				<div id="about" class="page-alternate">
 					<div class="container">
 						<!-- Title Page -->
