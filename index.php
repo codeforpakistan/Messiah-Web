@@ -76,14 +76,14 @@
                     <ul id="menu-nav">
                         <li class="current"><a href="#home-slider">HOME</a></li>
                         <li><a href="http://www.4shared.com/mobile/O2XTkn0kce/Messiah.html">DOWNLOAD</a></li>
-                        <li><a href="#work">OUR WORK</a></li>
+                        <li><a href="#work">ABOUT MESSIAH</a></li>
 						<li><a href="#about">ABOUT US</a></li>
 						<li><a href="#contact">CONTACT</a></li>
                     </ul>
 
                 </nav>
             </div>
-	</header>
+</header>
         <!-- End Header -->
         <div id="work" class="page">
             <div class="container">
