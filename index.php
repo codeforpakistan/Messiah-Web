@@ -128,17 +128,6 @@
 					</div>
 					<!-- End Blockquote -->
                     <!-- Start Blockquote -->
-					<div class="span12" align="center">
-						<blockquote>
-							<p>
-                            	<div class="fb-like-box" data-href="https://www.facebook.com/MessiahApp" data-width="900" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="true" data-show-border="false"></div>
-                            </p>
-						</blockquote>
-					</div>
-                    <hr>
-					<!-- End Blockquote -->
-                    
-                    <!-- Start Blockquote -->
 					<div class="span6" align="center">
 						<blockquote>
 							<p>
@@ -157,6 +146,17 @@
                             </p>
 						</blockquote>
 					</div>
+                    <hr>
+					<!-- End Blockquote -->
+                    <!-- Start Blockquote -->
+					<div class="span12" align="center">
+						<blockquote>
+							<p>
+                            	<div class="fb-like-box" data-href="https://www.facebook.com/MessiahApp" data-width="900" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="true" data-show-border="false"></div>
+                            </p>
+						</blockquote>
+					</div>
+                    <hr>
 					<!-- End Blockquote -->
 				</div>
 				<!-- End BlockQuote/Tooltip Section -->
