@@ -162,7 +162,7 @@
 								</div>
 							</div>
                             <div class="row collapse">
-					<div class="large-12 columns"><input tabindex="5" name="submit" type="submit" class="button expand success" value="Send" ></div>
+					<div class="large-12 columns"><input tabindex="5" name="submit" type="submit" class="button expand alert" value="Send" ></div>
 				</div>
 						</form>
 					</div>
