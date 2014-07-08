@@ -87,39 +87,39 @@
 					</div>
 				</div><br>
                 <div id="messenger" class="row panel radius">
-					<div class="large-8 columns">
+					<div class="large-9 columns">
 						<h4>One Click Messenger</h4><hr>
-						<p>This feature is responsible to help you in emergency situations. By pressing this button you make sure that your loved ones get to know that you are in trouble with your location.</p>
+						<p>Messiah acts as your one click messenger and allows you to contact your loved ones in case of emergency by just the press of a button. This button also alerts your nearby messiahs of your distress signal.</p>
 					</div>
-					<div class="large-4 columns"><img src="img/feature-1.png" width="400" height="400"></div>
+					<div class="large-3 columns"><img src="img/feature-1.png" width="400" height="400"></div>
 				</div>
                 <div id="nearby-messiah" class="row panel callout radius">
-					<div class="large-4 columns"><img src="img/feature-2.png" width="400" height="400"></div>
-					<div class="large-8 columns">
+					<div class="large-3 columns"><img src="img/feature-2.png" width="400" height="400"></div>
+					<div class="large-9 columns">
 						<h4>Be a Messiah</h4><hr>
-						<p>By pressing this button you can see your current position on a map and also the nearby Messiah users who tend to help you in difficut times.</p>
+						<p>Be a part of a growing community of messiahs and spread the message of humanity across barriers. If someone is in trouble nearby you can help them out. Similarly you can ask for help in case of emergency from nearby messiahs. We take volunteering as a messiah very seriously and verify every messiah's provided information.</p>
 					</div>
 				</div>
                 <div id="speed-dial" class="row panel radius">
-					<div class="large-8 columns">
-						<h4>Speed Dail</h4><hr>
-						<p>This button takes you to the speed dial page where you can call your your defined contacts and some selected govt offices with just a single click.</p>
+					<div class="large-9 columns">
+						<h4>Speed Dial</h4><hr>
+						<p>Messiah's built in speed dial is intuitively designed to help you reach out to your loved ones via telephone faster than the stock speed dial application.</p>
 					</div>
-                    <div class="large-4 columns"><img src="img/feature-3.png" width="400" height="400"></div>
+                    <div class="large-3 columns"><img src="img/feature-3.png" width="400" height="400"></div>
 				</div>
                 <div id="accident-mode" class="row panel callout radius">
-					<div class="large-4 columns"><img src="img/feature-4.png" width="400" height="400"></div>
-					<div class="large-8 columns">
+					<div class="large-3 columns"><img src="img/feature-4.png" width="400" height="400"></div>
+					<div class="large-9 columns">
 						<h4>Accident Mode</h4><hr>
-						<p>The settings menu lets you choose who you want to to contact incase of emergency and also choose to be a Messiah for others.</p>
+						<p>Messiah's built in accident detection mode can detect collisions and verify if you are ok. In case of a mishap it alerts your loved ones and nearby messiahs of your location and possible distress.</p>
 					</div>
 				</div>
 				<div id="accident-mode" class="row panel radius">
-					<div class="large-8 columns">
-						<h4>Tip of the day</h4><hr>
-						<p>Tip of the day will provide you tips of health, self defence and survival on daily basis.</p>
+					<div class="large-9 columns">
+						<h4>Saftey tip of the day</h4><hr>
+						<p>Keep your senses sharp by receiving daily tips on keeping yourself and your neighbourhood safe. These simple tips can help you in your daily routines to be alert and keeping yourself and those around you away from harm.</p>
 					</div>
-					<div class="large-4 columns"><img src="img/feature-5.png" width="400" height="400"></div>
+					<div class="large-3 columns"><img src="img/feature-5.png" width="400" height="400"></div>
 				</div>
                 <div class="row">
 					

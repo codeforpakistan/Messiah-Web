@@ -99,7 +99,7 @@
 							<a href="features.php#speed-dial">
 								<div class="large-3 medium-3 small-6 columns">
 									<h6 align="center"><img src="img/feature-3.png" width="170" height="auto"/></h6>
-									<h6 class="panel" align="center">Speed Dail</h6>
+									<h6 class="panel" align="center">Speed Dial</h6>
 								</div>
 							</a>
 							<a href="features.php#accident-mode">
@@ -136,11 +136,11 @@
 					</div>
                     <div class="large-12 columns">
 						<div class="row">
-							<div class="large-6 small-12 columns" align="center">
+							<div class="large-6 medium-6 small-12 columns" align="center">
 								<img src="img/cs-android.png" width="179" height="auto">
 							</div>
                             <div class="small-12 hidden-for-medium-up">&nbsp;</div>
-							<div class="large-6 small-12 columns" align="center">
+							<div class="large-6 medium-6 small-12 columns" align="center">
 								<img src="img/cs-apple.png" width="179" height="auto">
 							</div>
 						</div>
