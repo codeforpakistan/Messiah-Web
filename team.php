@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Messiah | Emergency ALert Messanger</title>
 		<link rel="stylesheet" href="css/foundation.css" />
+		<link href="css/font-awesome.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/app.css" />
 		<script src="js/vendor/modernizr.js"></script>
         <script>
@@ -72,76 +73,60 @@
 							</section>
 						</nav>
 					</div>
-				</div>
-				<div class="row">
-					<div class="large-12 columns">
-						<div class="hide-for-small">
-							<div id="featured"><img src="img/feature-image-medium-up.png" alt="slide image"></div>
-						</div>
-						<div class="small-12 show-for-small"><img src="img/feature-image-small.png"/></div>
-					</div>
 				</div><br><br>
-				<div class="row">
-					<div class="large-12 columns">
-						<div class="row">
-							<a href="features.php#messenger">
-								<div class="large-3 medium-3 small-6 columns">
-									<h6 align="center"><img src="img/feature-1.png" width="170" height="auto"/></h6>
-									<h6 class="panel" align="center">One Click Messenger</h6>
-								</div>
-							</a>
-							<a href="features.php#nearby-messiah">
-								<div class="large-3 medium-3 small-6 columns">
-									<h6 align="center"><img src="img/feature-2.png" width="170" height="auto"/></h6>
-									<h6 class="panel" align="center">Be a Messiah</h6>
-								</div>
-							</a>
-							<a href="features.php#speed-dial">
-								<div class="large-3 medium-3 small-6 columns">
-									<h6 align="center"><img src="img/feature-3.png" width="170" height="auto"/></h6>
-									<h6 class="panel" align="center">Speed Dail</h6>
-								</div>
-							</a>
-							<a href="features.php#accident-mode">
-								<div class="large-3 medium-3 small-6 columns">
-									<h6 align="center"><img src="img/feature-4.png" width="170" height="auto"/></h6>
-									<h6 class="panel" align="center">Accident Detection Mode</h6>
-								</div>
-							</a>
-						</div>
-                        <hr />
-					</div>
+                <div class="row">
+					<h2 align="center">TEAM MESSIAH</h2>
 				</div>
 				<div class="row">
 					<div class="large-12 columns">
-						<div class="panel radius">
-							<div class="row">
-								<div class="large-6 small-12 columns">
-									<h4>MESSIAH</h4><hr/>
-									<h5 class="subheader">BECAUSE YOUR LIFE IS PRECIOUS</h5>
-								</div>
-								<div class="large-6 small-12 columns">
-									<p>
-										<ul class="tick">
-											<li>Nearest Messiah’s.</li>
-											<li>Accident detection mode.</li>
-											<li>Tip of the day.</li>
-											<li>Speed dial.</li>
-											<li>One touch messenger</li>
-										</ul>
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-                    <div class="large-12 columns">
 						<div class="row">
-							<div class="large-6 small-12 columns" align="center">
-								<img src="img/cs-android.png" width="179" height="auto">
+							<div class="large-3 medium-3 small-6 columns panel">
+								<h6 align="center"><img src="img/profile/ebtihaj.jpg"/></h6>
+								<h4 align="center">Ebtihaj</h4>
+								<h5 align="center">UX/UI Designer</h5>
+                                <div class="small-offset-4">
+									<ul class="inline-list">
+                                        <li><a href="https://twitter.com/ebtihajkhan"><i class="fa fa-1x fa-twitter"></i></a></li>
+										<li><a href="https://www.facebook.com/ebtihaj.khan.9"><i class="fa fa-1x fa-facebook"></i></a></li>
+										<li><a href="https://github.com/ebtihaj-khan"><i class="fa fa-1x fa-github-alt"></i></a></li>
+									</ul>
+								</div>
 							</div>
-                            <div class="small-12 hidden-for-medium-up">&nbsp;</div>
-							<div class="large-6 small-12 columns" align="center">
-								<img src="img/cs-apple.png" width="179" height="auto">
+							<div class="large-3 medium-3 small-6 columns panel">
+								<h6 align="center"><img src="img/profile/zahid.jpg"/></h6>
+								<h4 align="center">Zahid Ali</h4>
+								<h5 align="center">Android Developer</h5>
+                                <div class="small-offset-4">
+									<ul class="inline-list">
+                                        <li><a href="https://twitter.com/ZfzZahid"><i class="fa fa-1x fa-twitter"></i></a></li>
+										<li><a href="https://www.facebook.com/zahid.ali.16121471"><i class="fa fa-1x fa-facebook"></i></a></li>
+										<li><a href="https://github.com/zahid--ali"><i class="fa fa-1x fa-github-alt"></i></a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="large-3 medium-3 small-6 columns panel">
+								<h6 align="center"><img src="img/profile/mubassir.jpg"/></h6>
+								<h4 align="center">Mubassir Hayat</h4>
+								<h5 align="center">Web Developer</h5>
+                                <div class="small-offset-4">
+									<ul class="inline-list">
+                                        <li><a href="https://twitter.com/MubassirHayat"><i class="fa fa-1x fa-twitter"></i></a></li>
+										<li><a href="https://www.facebook.com/master.mind.master"><i class="fa fa-1x fa-facebook"></i></a></li>
+										<li><a href="https://github.com/mubassirhayat"><i class="fa fa-1x fa-github-alt"></i></a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="large-3 medium-3 small-6 columns panel">
+								<h6 align="center"><img src="img/profile/khwaja.jpg"/></h6>
+								<h4 align="center">Khwaja Bilal</h4>
+								<h5 align="center">Software Engineer</h5>
+                                <div class="small-offset-4">
+									<ul class="inline-list">
+                                        <li><a href="https://twitter.com/khwbilal"><i class="fa fa-1x fa-twitter"></i></a></li>
+										<li><a href="https://www.facebook.com/khwajabilal.hassan"><i class="fa fa-1x fa-facebook"></i></a></li>
+										<li><a href="https://github.com/khwajabilal"><i class="fa fa-1x fa-github-alt"></i></a></li>
+									</ul>
+								</div>
 							</div>
 						</div>
 					</div>

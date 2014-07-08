@@ -1,3 +1,69 @@
+<?php
+	if(isset($_POST['submit'])){
+		$first_name = $_POST['first_name'];
+		$last_name = $_POST['last_name'];
+		$full_name = $first_name . " " . $last_name;
+		$email = $_POST['email'];
+		$message = $_POST['message'];
+		//SMTP needs accurate times, and the PHP time zone MUST be set
+		//This should be done in your php.ini, but this is how to do it if you don't have access to that
+		date_default_timezone_set('Etc/UTC');
+		require_once('inc/PHPMailer/PHPMailerAutoload.php');
+
+		//Create a new PHPMailer instance
+		$mail = new PHPMailer();	
+
+		//Tell PHPMailer to use SMTP	
+		$mail->isSMTP();
+	
+		//Enable SMTP debugging
+		// 0 = off (for production use)
+		// 1 = client messages	
+		// 2 = client and server messages
+		$mail->SMTPDebug = 2;
+
+		//Ask for HTML-friendly debug output
+		$mail->Debugoutput = 'html';
+
+		//Set the hostname of the mail server
+		$mail->Host = 'smtp.gmail.com';
+
+		//Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+		$mail->Port = 587;
+		
+		//Set the encryption system to use - ssl (deprecated) or tls
+		$mail->SMTPSecure = 'tls';
+	
+		//Whether to use SMTP authentication	
+		$mail->SMTPAuth = true;
+		
+		//Username to use for SMTP authentication - use full email address for gmail
+		$mail->Username = "messiahapp@gmail.com";
+		
+		//Password to use for SMTP authentication
+		$mail->Password = "ebtizaidimubbi";
+		
+		//Set who the message is to be sent from
+		$mail->setFrom($email, $full_name);
+		
+		//Set who the message is to be sent to
+		$mail->addAddress('mubassirhayat@gmail.com', 'Mubassir Hayat');
+		
+		//Set the subject line
+		$mail->Subject = "Messiah's fan {$full_name} wants to say something";
+
+		//Replace the plain text body with one created manually
+		$mail->AltBody = $message;
+		$mail->AltBody = $message;
+		
+		//send the message, check for errors
+		if (!$mail->send()) {
+	    	//echo "Mailer Error: " . $mail->ErrorInfo;
+		} else {
+	    	//echo "Message sent!";
+		}
+	}
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 	<head>
@@ -72,80 +138,44 @@
 							</section>
 						</nav>
 					</div>
-				</div>
+				</div><br>
 				<div class="row">
-					<div class="large-12 columns">
-						<div class="hide-for-small">
-							<div id="featured"><img src="img/feature-image-medium-up.png" alt="slide image"></div>
-						</div>
-						<div class="small-12 show-for-small"><img src="img/feature-image-small.png"/></div>
-					</div>
-				</div><br><br>
-				<div class="row">
-					<div class="large-12 columns">
-						<div class="row">
-							<a href="features.php#messenger">
-								<div class="large-3 medium-3 small-6 columns">
-									<h6 align="center"><img src="img/feature-1.png" width="170" height="auto"/></h6>
-									<h6 class="panel" align="center">One Click Messenger</h6>
-								</div>
-							</a>
-							<a href="features.php#nearby-messiah">
-								<div class="large-3 medium-3 small-6 columns">
-									<h6 align="center"><img src="img/feature-2.png" width="170" height="auto"/></h6>
-									<h6 class="panel" align="center">Be a Messiah</h6>
-								</div>
-							</a>
-							<a href="features.php#speed-dial">
-								<div class="large-3 medium-3 small-6 columns">
-									<h6 align="center"><img src="img/feature-3.png" width="170" height="auto"/></h6>
-									<h6 class="panel" align="center">Speed Dail</h6>
-								</div>
-							</a>
-							<a href="features.php#accident-mode">
-								<div class="large-3 medium-3 small-6 columns">
-									<h6 align="center"><img src="img/feature-4.png" width="170" height="auto"/></h6>
-									<h6 class="panel" align="center">Accident Detection Mode</h6>
-								</div>
-							</a>
-						</div>
-                        <hr />
-					</div>
-				</div>
-				<div class="row">
-					<div class="large-12 columns">
-						<div class="panel radius">
+					<div class="large-12 columns"><h4 class="panel radius">Get in touch with us.</h4></div>
+					<div class="large-8 columns">
+						<form action="" method="post" enctype="multipart/form-data">
 							<div class="row">
-								<div class="large-6 small-12 columns">
-									<h4>MESSIAH</h4><hr/>
-									<h5 class="subheader">BECAUSE YOUR LIFE IS PRECIOUS</h5>
+								<div class="large-6 columns">
+									<label>First Name: <input tabindex="1" autofocus type="text" name="first_name" placeholder="Your First Name" required/></label> 
 								</div>
-								<div class="large-6 small-12 columns">
-									<p>
-										<ul class="tick">
-											<li>Nearest Messiah’s.</li>
-											<li>Accident detection mode.</li>
-											<li>Tip of the day.</li>
-											<li>Speed dial.</li>
-											<li>One touch messenger</li>
-										</ul>
-									</p>
+								<div class="large-6 columns">
+									<label>Last Name: <input tabindex="2" type="text" name="last_name" placeholder="Your Last Name" required/></label>
 								</div>
 							</div>
-						</div>
+							<div class="row">
+								<div class="large-12 columns">
+									<label>Email: <input type="email" tabindex="3" name="email" placeholder="Enter your email here" required/></label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="large-12 columns">
+									<label>Message: <textarea tabindex="4" name="message" placeholder="Enter your message here" rows="15" required></textarea></label>
+								</div>
+							</div>
+                            <div class="row collapse">
+					<div class="large-12 columns"><input tabindex="5" name="submit" type="submit" class="button expand success" value="Send" ></div>
+				</div>
+						</form>
 					</div>
-                    <div class="large-12 columns">
-						<div class="row">
-							<div class="large-6 small-12 columns" align="center">
-								<img src="img/cs-android.png" width="179" height="auto">
-							</div>
-                            <div class="small-12 hidden-for-medium-up">&nbsp;</div>
-							<div class="large-6 small-12 columns" align="center">
-								<img src="img/cs-apple.png" width="179" height="auto">
-							</div>
+					<div class="large-4 columns">
+						<div class="panel callout round">
+							<h4>Contact Details</h4>
+							<p><a href="#">messiah.app@gmail.com</a></p>
+							<p>(+92) 0314-9194712</p>
+							<p>Messiah Team<br>Code For Pakistan<br>Peshawar, KPK, Pakistan</p>
 						</div>
 					</div>
 				</div>
+                
 				<footer class="row">
 					<div class="large-12 columns">
 						<hr>

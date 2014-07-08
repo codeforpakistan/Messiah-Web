@@ -1,0 +1,25 @@
+/* Overrided CSS */
+
+.contain-to-grid { background: #ecf0f1; }
+.top-bar { background: #ecf0f1;}
+.top-bar ul > li a:not(.button) { color: black; }
+.top-bar ul > li:not(.name):hover, .top-bar ul > li:not(.name).active, .top-bar ul > li:not(.name):focus { background: #f0f0f0; }
+.top-bar ul > li:not(.name):hover a, .top-bar ul > li:not(.name).active a, .top-bar ul > li:not(.name):focus a { color: #aaa; }
+.top-bar ul > li.has-button:hover, .top-bar ul > li.has-button:focus { background: #ecf0f1; }
+.top-bar ul > li.has-button:hover a, .top-bar ul > li.has-button:focus a { color: #fff; }
+.top-bar ul > li.search:hover, .top-bar ul > li.search:focus { background: #ecf0f1; }
+.top-bar ul > li.login:hover, .top-bar ul > li.login:focus { background: #ecf0f1; }
+.top-bar ul > li.has-dropdown a:after { border-color: black transparent transparent transparent; }
+.top-bar ul > li.has-dropdown .dropdown { background: #ecf0f1;}
+.top-bar ul > li.has-dropdown .dropdown li { background: #ecf0f1;}
+.top-bar ul > li.has-dropdown .dropdown li a { color: black;  }
+.top-bar ul > li.has-dropdown .dropdown li a:hover, .top-bar ul > li.has-dropdown .dropdown li a:focus { background: #c3c3c3; }
+.top-bar ul > li.has-dropdown .dropdown li label { color: #909090; }
+.top-bar ul > li.has-dropdown .dropdown li.divider { border-top: solid 1px #f0f0f0; }
+.top-bar ul > li.has-dropdown .dropdown li.active a { background: #f0f0f0; }
+.top-bar-section li:not(.has-form) a:not(.button) { padding: 0 15px; line-height: 45px; background: #ecf0f1; }
+.top-bar ul > li.divider { background: #DDDDDD; }
+.top-bar-section > ul > .divider, .top-bar-section > ul > [role="separator"] { border-bottom: none; border-top: none; border-right: solid 1px #DDDDDD; clear: none; height: 45px; width: 0; }
+.top-bar-section li:not(.has-form) a:not(.button):hover { background-color: #bdc3c7; background: #fff; }
+.top-bar ul > li:not(.name):hover a, .top-bar ul > li:not(.name).active a, .top-bar ul > li:not(.name):focus a { color: #111; }
+ul.tick {list-style-image: url(../img/tick.png); }
