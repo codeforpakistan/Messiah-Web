@@ -72,79 +72,57 @@
 							</section>
 						</nav>
 					</div>
-				</div>
-				<div class="row">
-					<div class="large-12 columns">
-						<div class="hide-for-small">
-							<div id="featured"><img src="img/feature-image-medium-up.png" alt="slide image"></div>
-						</div>
-						<div class="small-12 show-for-small"><img src="img/feature-image-small.png"/></div>
+				</div><br>
+                <div class="row" align="center">
+					<div class="large-3 medium-4 small-6">
+						<ul class="featured" data-orbit>
+							<li data-orbit-slide="headline-1"><img src="img/slick-slider/0.png" alt="slide 1" />
+							<li data-orbit-slide="headline-1"><img src="img/slick-slider/1.png" alt="slide 1" />
+							<li data-orbit-slide="headline-1"><img src="img/slick-slider/2.png" alt="slide 1" />
+							<li data-orbit-slide="headline-1"><img src="img/slick-slider/3.png" alt="slide 1" />
+							<li data-orbit-slide="headline-1"><img src="img/slick-slider/5.png" alt="slide 1" />
+							<li data-orbit-slide="headline-1"><img src="img/slick-slider/6.png" alt="slide 1" />
+							<li data-orbit-slide="headline-1"><img src="img/slick-slider/7.png" alt="slide 1" />
+						</ul>
 					</div>
-				</div><br><br>
-				<div class="row">
-					<div class="large-12 columns">
-						<div class="row">
-							<a href="features.php#messenger">
-								<div class="large-3 medium-3 small-6 columns">
-									<h6 align="center"><img src="img/feature-1.png" width="170" height="auto"/></h6>
-									<h6 class="panel" align="center">One Click Messenger</h6>
-								</div>
-							</a>
-							<a href="features.php#nearby-messiah">
-								<div class="large-3 medium-3 small-6 columns">
-									<h6 align="center"><img src="img/feature-2.png" width="170" height="auto"/></h6>
-									<h6 class="panel" align="center">Be a Messiah</h6>
-								</div>
-							</a>
-							<a href="features.php#speed-dial">
-								<div class="large-3 medium-3 small-6 columns">
-									<h6 align="center"><img src="img/feature-3.png" width="170" height="auto"/></h6>
-									<h6 class="panel" align="center">Speed Dail</h6>
-								</div>
-							</a>
-							<a href="features.php#accident-mode">
-								<div class="large-3 medium-3 small-6 columns">
-									<h6 align="center"><img src="img/feature-4.png" width="170" height="auto"/></h6>
-									<h6 class="panel" align="center">Accident Detection Mode</h6>
-								</div>
-							</a>
-						</div>
-                        <hr />
+				</div><br>
+                <div id="messenger" class="row panel radius">
+					<div class="large-8 columns">
+						<h4>One Click Messenger</h4><hr>
+						<p>This feature is responsible to help you in emergency situations. By pressing this button you make sure that your loved ones get to know that you are in trouble with your location.</p>
+					</div>
+					<div class="large-4 columns"><img src="img/feature-1.png" width="400" height="400"></div>
+				</div>
+                <div id="nearby-messiah" class="row panel callout radius">
+					<div class="large-4 columns"><img src="img/feature-2.png" width="400" height="400"></div>
+					<div class="large-8 columns">
+						<h4>Be a Messiah</h4><hr>
+						<p>By pressing this button you can see your current position on a map and also the nearby Messiah users who tend to help you in difficut times.</p>
 					</div>
 				</div>
-				<div class="row">
-					<div class="large-12 columns">
-						<div class="panel radius">
-							<div class="row">
-								<div class="large-6 small-12 columns">
-									<h4>MESSIAH</h4><hr/>
-									<h5 class="subheader">BECAUSE YOUR LIFE IS PRECIOUS</h5>
-								</div>
-								<div class="large-6 small-12 columns">
-									<p>
-										<ul class="tick">
-											<li>Nearest Messiah’s.</li>
-											<li>Accident detection mode.</li>
-											<li>Tip of the day.</li>
-											<li>Speed dial.</li>
-											<li>One touch messenger</li>
-										</ul>
-									</p>
-								</div>
-							</div>
-						</div>
+                <div id="speed-dial" class="row panel radius">
+					<div class="large-8 columns">
+						<h4>Speed Dail</h4><hr>
+						<p>This button takes you to the speed dial page where you can call your your defined contacts and some selected govt offices with just a single click.</p>
 					</div>
-                    <div class="large-12 columns">
-						<div class="row">
-							<div class="large-6 small-12 columns" align="center">
-								<img src="img/cs-android.png" width="179" height="auto">
-							</div>
-                            <div class="small-12 hidden-for-medium-up">&nbsp;</div>
-							<div class="large-6 small-12 columns" align="center">
-								<img src="img/cs-apple.png" width="179" height="auto">
-							</div>
-						</div>
+                    <div class="large-4 columns"><img src="img/feature-3.png" width="400" height="400"></div>
+				</div>
+                <div id="accident-mode" class="row panel callout radius">
+					<div class="large-4 columns"><img src="img/feature-4.png" width="400" height="400"></div>
+					<div class="large-8 columns">
+						<h4>Accident Mode</h4><hr>
+						<p>The settings menu lets you choose who you want to to contact incase of emergency and also choose to be a Messiah for others.</p>
 					</div>
+				</div>
+				<div id="accident-mode" class="row panel radius">
+					<div class="large-8 columns">
+						<h4>Tip of the day</h4><hr>
+						<p>Tip of the day will provide you tips of health, self defence and survival on daily basis.</p>
+					</div>
+					<div class="large-4 columns"><img src="img/feature-5.png" width="400" height="400"></div>
+				</div>
+                <div class="row">
+					
 				</div>
 				<footer class="row">
 					<div class="large-12 columns">
@@ -168,6 +146,11 @@
 			<!-- End of inner-wrap -->
 		</div>
         <!-- End of off-canvas -->
+		<script>
+			document.write('<script src=js/vendor/' +
+			('__proto__' in {} ? 'zepto' : 'jquery') +
+			'.js><\/script>')
+		</script>
 		<script src="js/vendor/jquery.js"></script>
 		<script src="js/foundation.min.js"></script>
 		<script>
