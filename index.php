@@ -86,25 +86,25 @@
 						<div class="row">
 							<a href="features.php#messenger">
 								<div class="large-3 medium-3 small-12 columns">
-									<h6 align="center"><img src="img/feature-1.png" width="170" height="auto"/></h6>
+									<h6 align="center"><img src="img/feature-1.png"/></h6>
 									<h6 class="panel" align="center">One Click Messenger</h6>
 								</div>
 							</a>
 							<a href="features.php#nearby-messiah">
 								<div class="large-3 medium-3 small-12 columns">
-									<h6 align="center"><img src="img/feature-2.png" width="170" height="auto"/></h6>
+									<h6 align="center"><img src="img/feature-2.png"/></h6>
 									<h6 class="panel" align="center">Be a Messiah</h6>
 								</div>
 							</a>
 							<a href="features.php#speed-dial">
 								<div class="large-3 medium-3 small-12 columns">
-									<h6 align="center"><img src="img/feature-3.png" width="170" height="auto"/></h6>
+									<h6 align="center"><img src="img/feature-3.png"/></h6>
 									<h6 class="panel" align="center">Speed Dial</h6>
 								</div>
 							</a>
 							<a href="features.php#accident-mode">
 								<div class="large-3 medium-3 small-12 columns">
-									<h6 align="center"><img src="img/feature-4.png" width="170" height="auto"/></h6>
+									<h6 align="center"><img src="img/feature-4.png"/></h6>
 									<h6 class="panel" align="center">Accident Detection Mode</h6>
 								</div>
 							</a>
