@@ -6,6 +6,7 @@
 		<title>Messiah | Emergency Alert Messanger</title>
 		<link rel="stylesheet" href="css/foundation.css" />
 		<link rel="stylesheet" href="css/app.css" />
+		<link rel="stylesheet" href="css/normalize.css" />
 		<script src="js/vendor/modernizr.js"></script>
         <script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

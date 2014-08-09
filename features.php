@@ -6,6 +6,7 @@
 		<title>Messiah | Features</title>
 		<link rel="stylesheet" href="css/foundation.css" />
 		<link rel="stylesheet" href="css/app.css" />
+		<link rel="stylesheet" href="css/normalize.css" />
 		<script src="js/vendor/modernizr.js"></script>
         <script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -120,9 +121,6 @@
 						<p>Keep your senses sharp by receiving daily tips on keeping yourself and your neighbourhood safe. These simple tips can help you in your daily routines to be alert and keeping yourself and those around you away from harm.</p>
 					</div>
 					<div class="large-3 columns"><img src="img/feature-5.png" width="400" height="400"></div>
-				</div>
-                <div class="row">
-					
 				</div>
 				<footer class="row">
 					<div class="large-12 columns">
