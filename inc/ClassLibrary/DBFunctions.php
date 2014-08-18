@@ -46,8 +46,8 @@ class DBFunctions {
 			$GUID = $row['guid'];
 			$verificationCode = $this->generate_verification_code();
 			$query = "UPDATE messiah_users SET
-									verification_code = '{$verificationCode}'
-								 WHERE guid = '{$GUID}'";
+						verification_code = '{$verificationCode}'
+					  WHERE guid = '{$GUID}'";
 			$result = mysql_query($query);
 
 		}
@@ -57,6 +57,41 @@ class DBFunctions {
 		$smileAPIObject->get_session();
 		$smileAPIObject->send_sms($PhoneNumber, '8333', $textmessage);
 		return true;
+	}
+
+	/**
+	 ** Insert Function for Current location on Registration
+	 **/
+	public function insertCurrentLocOnReg($PhoneNumber, $Latitude, $Longitude){
+		$PhoneNumber = "+" . $PhoneNumber;
+		$query = "INSERT INTO messiah_current_location (
+                  	phone_no, latitude, longitude
+                  ) VALUES (
+                  	'{$PhoneNumber}', '{$Latitude}', '{$Longitude}'
+                  )";
+		
+        $result = mysql_query($query) or die(mysql_error());
+        return true;
+	}
+
+	/**
+	 ** Update Function for Current location on Map Load
+	 **/
+	public function updateCurrentLocOnMapLoad($PhoneNumber, $Latitude, $Longitude){
+		$PhoneNumber = "+" . $PhoneNumber;
+		$query = "UPDATE messiah_current_location SET
+					latitude = '{$Latitude}', 
+					longitude = '{$Longitude}'
+				  WHERE phone_no = '{$PhoneNumber}'";
+		$result = mysql_query($query);
+		return true;
+	}
+
+	/**
+	 ** Get Nearby Messiahs
+	 **/
+	public function getNearbyMessiah($LatitudeFrom, $longitudeFrom) {
+
 	}
 
 	/**
@@ -105,22 +140,22 @@ class DBFunctions {
 		if (function_exists('com_create_guid')){
 			return trim(com_create_guid(), "{, }");
 		} else {
-	      mt_srand((double)microtime()*10000);//optional for php 4.2.0 and up.
-	      $charid = strtoupper(md5(uniqid(rand(), true)));
-				$hyphen = chr(45);// "-"
-				$uuid = chr(123)// "{"
-					      .substr($charid, 0, 8).$hyphen
-					      .substr($charid, 8, 4).$hyphen
-					      .substr($charid,12, 4).$hyphen
-					      .substr($charid,16, 4).$hyphen
-					      .substr($charid,20,12)
-	              .chr(125);// "}"
-	      return  trim($uuid, "{, }");
-	  }
+	    	mt_srand((double)microtime()*10000);
+	    	$charid = strtoupper(md5(uniqid(rand(), true)));
+				$hyphen = chr(45);
+				$uuid = chr(123)
+					      . substr($charid, 0, 8).$hyphen
+					      . substr($charid, 8, 4).$hyphen
+					      . substr($charid,12, 4).$hyphen
+					      . substr($charid,16, 4).$hyphen
+					      . substr($charid,20,12)
+	              		  . chr(125);
+	    	return  trim($uuid, "{, }");
+		}
 	}
 
 	private function generate_verification_code(){
-		$characters = 'abcdefghij01234567890klmnopqrstuvwxyz01234567890ABCDEFGHIJ01234567890KLMNOPQRSTUVWXYZ';
+		$characters = 'ABCDEFGHIJ01234567890KLMNOPQRSTUVWXYZ0987654321234567890ABCDEFGHIJ01234567890KLMNOPQRSTUVWXYZ';
 
 		$string = '';
 
@@ -129,5 +164,20 @@ class DBFunctions {
 		}   
 
 		return $string;
+	}
+
+	public function haversineDistanceRadians($lat1, $lon1, $lat2, $lon2) {
+	    $radiusOfEarth = 6371;// Earth's radius in meters.
+	    
+        $x1 = $lat2 - $lat1;
+        $dLat = deg2rad($x1);
+        $x2 = $lon2 - $lon1;
+        $dLon = deg2rad($x2);
+        $a = sin($dLat / 2) * sin($dLat / 2) +
+          cos(deg2rad($lat1)) * cos(deg2rad($lat2)) *
+          sin($dLon / 2) * sin($dLon / 2);
+        $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
+        $d = $radiusOfEarth * $c;
+        return $d;
 	}
 }
