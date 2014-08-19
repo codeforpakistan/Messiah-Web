@@ -26,6 +26,9 @@ require 'autoload.php';
 	// check for user
 	if($Operation === "Insert"){
 		$currentLocation = $db->insertCurrentLocOnReg($PhoneNumber, $Latitude, $Longitude);
+		if(!$currentLocation == false){
+			$currentLocation = $db->updateCurrentLocOnMapLoad($PhoneNumber, $Latitude, $Longitude);
+		}
 	} else if($Operation === "Update"){
 		$currentLocation = $db->updateCurrentLocOnMapLoad($PhoneNumber, $Latitude, $Longitude);
 	} else{

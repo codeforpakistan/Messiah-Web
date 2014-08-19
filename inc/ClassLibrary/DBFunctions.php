@@ -70,8 +70,13 @@ class DBFunctions {
                   	'{$PhoneNumber}', '{$Latitude}', '{$Longitude}'
                   )";
 		
-        $result = mysql_query($query) or die(mysql_error());
-        return true;
+        $result = mysql_query($query);
+        if($result){
+        	return true;
+        } else {
+        	return false;
+        }
+        
 	}
 
 	/**
@@ -84,15 +89,56 @@ class DBFunctions {
 					longitude = '{$Longitude}'
 				  WHERE phone_no = '{$PhoneNumber}'";
 		$result = mysql_query($query);
-		return true;
+        if($result){
+        	return true;
+        } else {
+        	return false;
+        }
 	}
 
 	/**
 	 ** Get Nearby Messiahs
 	 **/
-	public function getNearbyMessiah($LatitudeFrom, $longitudeFrom) {
-
+	public function getNearbyMessiah($PhoneNumber, $latitudeFrom, $longitudeFrom) {
+		$PhoneNumber = "+" . $PhoneNumber;
+		$query = "SELECT * FROM messiah_current_location WHERE phone_no != '{$PhoneNumber}'";
+        $result = mysql_query($query);
+        $UsersArray = array();
+        while ($row = mysql_fetch_array($result)) {
+        	$userDistance = $this->haversineDistance($latitudeFrom, $longitudeFrom, $row['latitude'], $row['longitude']);
+        	if($userDistance <= 2){
+        		$getUserName = mysql_fetch_array(mysql_query("SELECT full_name FROM messiah_users WHERE phone_no = '{$row['phone_no']}'"));
+        		$userData = array('FullName' => $getUserName['full_name'], 'Latitude' => $row['latitude'], 'Longitude' => $row['longitude']);
+	        	$UsersArray += array("{$row['phone_no']}" => $userData);
+	        }
+        }
+        return $UsersArray;
 	}
+
+	// public function getNearbyMessiah($PhoneNumber, $latitudeFrom, $longitudeFrom) {
+	// 	$PhoneNumber = "+" . $PhoneNumber;
+	// 	$query = "SELECT *, 
+ //                    ( 6372.8 * acos( 
+ //                    			cos( radians( {$latitudeFrom} ) ) * 
+ //                    			cos( radians( `latitude` ) ) * 
+ //                    			cos( radians( `longitude` ) - radians( {$longitudeFrom} ) ) + 
+ //                    			sin( radians( {$latitudeFrom} ) ) * 
+ //                    			sin( radians( `latitude` ) ) ) ) AS distance
+ //                    FROM `messiah_current_location` HAVING distance <= 2 WHERE `phone_no` != '{$PhoneNumber}'
+ //                    ORDER BY distance";
+ //        $result = mysql_query($query);
+ //        $UsersArray = array();
+ //        while ($row = mysql_fetch_array($result)) {
+ //        	//$userDistance = $this->haversineDistance($latitudeFrom, $longitudeFrom, $row['latitude'], $row['longitude']);
+ //        	//if($userDistance <= 2){
+ //        		$getUserName = mysql_fetch_array(mysql_query("SELECT full_name FROM messiah_users WHERE phone_no = '{$row['phone_no']}'"));
+ //        		$userData = array('FullName' => $getUserName['full_name'], 'Latitude' => $row['latitude'], 'Longitude' => $row['longitude']);
+	//         	$UsersArray += array("{$row['phone_no']}" => $userData);
+	//         //}
+ //        }
+ //        var_dump( $UsersArray );
+ //        die();
+	// }
 
 	/**
 	 ** Authorize using verification code and then change verification code
@@ -165,19 +211,33 @@ class DBFunctions {
 
 		return $string;
 	}
+		
+	
+	private function haversineDistance($LatitudeFrom, $LongitudeFrom, $LatitudeTo, $LongitudeTo) {
+		$Rm = 3961; // mean radius of the earth (miles) at 39 degrees from the equator
+		$Rk = 6372.8; // mean radius of the earth (km) at 39 degrees from the equator
+						
+		// convert coordinates to radians
+		$lat1 = deg2rad($LatitudeFrom);
+		$lon1 = deg2rad($LongitudeFrom);
+		$lat2 = deg2rad($LatitudeTo);
+		$lon2 = deg2rad($LongitudeTo);
+				
+		// find the differences between the coordinates
+		$dlat = $lat2 - $lat1;
+		$dlon = $lon2 - $lon1;
+				
+		// here's the heavy lifting
+		$a  = pow(sin($dlat/2),2) + cos($lat1) * cos($lat2) * pow(sin($dlon/2),2);
+		$c  = 2 * atan2(sqrt($a),sqrt(1-$a)); // great circle distance in radians
+		$dm = $c * $Rm; // great circle distance in miles
+		$dk = $c * $Rk; // great circle distance in km
+				
+		// round the results down to the nearest 1/1000
+		$mi = round($dm, 9);
+		$km = round($dk, 9);
 
-	public function haversineDistanceRadians($lat1, $lon1, $lat2, $lon2) {
-	    $radiusOfEarth = 6371;// Earth's radius in meters.
-	    
-        $x1 = $lat2 - $lat1;
-        $dLat = deg2rad($x1);
-        $x2 = $lon2 - $lon1;
-        $dLon = deg2rad($x2);
-        $a = sin($dLat / 2) * sin($dLat / 2) +
-          cos(deg2rad($lat1)) * cos(deg2rad($lat2)) *
-          sin($dLon / 2) * sin($dLon / 2);
-        $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
-        $d = $radiusOfEarth * $c;
-        return $d;
+		var_dump($km);
+		
 	}
 }

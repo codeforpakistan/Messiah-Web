@@ -27,13 +27,10 @@ require 'autoload.php';
 	$currentLocation = $db->updateCurrentLocOnMapLoad($PhoneNumber, $Latitude, $Longitude);
 
 	//Get Nearby Messiahs here
-	$NearbyMessiah = $db->getNearbyMessiah($Latitude, $Longitude); ;
-	
-	if ($currentLocation != false) {
-	  // Location Updated
-	  // echo json with success = 1
-	  $response["Status"] = 1;
-	  echo json_encode($response);
+	$NearbyMessiah = $db->getNearbyMessiah($PhoneNumber, $Latitude, $Longitude);
+
+	if ($currentLocation != false && !empty($NearbyMessiah)) {
+	  echo json_encode($NearbyMessiah);
   } else {
 	  // Location not Updated
 	  // echo json with error = 1
