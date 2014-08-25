@@ -12,31 +12,31 @@ require 'autoload.php';
   /*/
   if ((isset($_GET['Latitude']) && $_GET['Latitude'] != '') && (isset($_GET['Longitude']) && $_GET['Longitude'] != '') && (isset($_GET['PhoneNumber']) && $_GET['PhoneNumber'] != '')) {
 	// get tag
-	$Latitude = $_GET['Latitude'];
-	$Longitude = $_GET['Longitude'];
-	$PhoneNumber = $_GET['PhoneNumber'];
+  	$Latitude = $_GET['Latitude'];
+  	$Longitude = $_GET['Longitude'];
+  	$PhoneNumber = $_GET['PhoneNumber'];
 
 	// include db handler
-	$db = new \ClassLibrary\DBFunctions();
+  	$db = @new \ClassLibrary\DBFunctions();
 
 	// response Array
-	$response = array("Status" => 0);
-	$currentLocation = NULL;
+  	$response = array("Status" => 0);
+  	$currentLocation = NULL;
 
 	// Update Current Location
-	$currentLocation = $db->updateCurrentLocOnMapLoad($PhoneNumber, $Latitude, $Longitude);
+  	$currentLocation = $db->updateCurrentLocOnMapLoad($PhoneNumber, $Latitude, $Longitude);
 
 	//Get Nearby Messiahs here
-	$NearbyMessiah = $db->getNearbyMessiah($PhoneNumber, $Latitude, $Longitude);
+  	$NearbyMessiah = $db->getNearbyMessiah($PhoneNumber, $Latitude, $Longitude);
 
-	if ($currentLocation != false && !empty($NearbyMessiah)) {
-	  echo json_encode($NearbyMessiah);
-  } else {
+  	if ($currentLocation != false && !empty($NearbyMessiah)) {
+  		echo json_encode($NearbyMessiah);
+  	} else {
 	  // Location not Updated
 	  // echo json with error = 1
-	  $response["Status"] = 0;
-	  echo json_encode($response);
+  		$response["Status"] = 0;
+  		echo json_encode($response);
+  	}
+  } else {
+  	echo "Access Denied";
   }
-} else {
-	echo "Access Denied";
-}
