@@ -3,6 +3,7 @@
 namespace ClassLibrary;
 
 use \ClassLibrary\DBConnect;
+use \ClassLibrary\Config;
 
 class DBFunctions {
 	private $db;
@@ -103,42 +104,18 @@ class DBFunctions {
 		$PhoneNumber = "+" . $PhoneNumber;
 		$query = "SELECT * FROM messiah_current_location WHERE phone_no != '{$PhoneNumber}'";
         $result = mysql_query($query);
-        $UsersArray = array();
+        $UsersArray = array();;
         while ($row = mysql_fetch_array($result)) {
         	$userDistance = $this->haversineDistance($latitudeFrom, $longitudeFrom, $row['latitude'], $row['longitude']);
         	if($userDistance <= 2){
         		$getUserName = mysql_fetch_array(mysql_query("SELECT full_name FROM messiah_users WHERE phone_no = '{$row['phone_no']}'"));
-        		$userData = array('FullName' => $getUserName['full_name'], 'Latitude' => $row['latitude'], 'Longitude' => $row['longitude']);
-	        	$UsersArray += array("{$row['phone_no']}" => $userData);
+        		//$userData = $row['phone_no'] . ', ' . $getUserName['full_name'] . ', ' . $row['latitude'] . ', ' . $row['longitude'];
+        		$userData = array('PhoneNumber' => $row['phone_no'], 'FullName' => $getUserName['full_name'], 'Latitude' => $row['latitude'], 'Longitude' => $row['longitude']);
+	        	array_push($UsersArray, $userData);
 	        }
         }
         return $UsersArray;
 	}
-
-	// public function getNearbyMessiah($PhoneNumber, $latitudeFrom, $longitudeFrom) {
-	// 	$PhoneNumber = "+" . $PhoneNumber;
-	// 	$query = "SELECT *, 
- //                    ( 6372.8 * acos( 
- //                    			cos( radians( {$latitudeFrom} ) ) * 
- //                    			cos( radians( `latitude` ) ) * 
- //                    			cos( radians( `longitude` ) - radians( {$longitudeFrom} ) ) + 
- //                    			sin( radians( {$latitudeFrom} ) ) * 
- //                    			sin( radians( `latitude` ) ) ) ) AS distance
- //                    FROM `messiah_current_location` HAVING distance <= 2 WHERE `phone_no` != '{$PhoneNumber}'
- //                    ORDER BY distance";
- //        $result = mysql_query($query);
- //        $UsersArray = array();
- //        while ($row = mysql_fetch_array($result)) {
- //        	//$userDistance = $this->haversineDistance($latitudeFrom, $longitudeFrom, $row['latitude'], $row['longitude']);
- //        	//if($userDistance <= 2){
- //        		$getUserName = mysql_fetch_array(mysql_query("SELECT full_name FROM messiah_users WHERE phone_no = '{$row['phone_no']}'"));
- //        		$userData = array('FullName' => $getUserName['full_name'], 'Latitude' => $row['latitude'], 'Longitude' => $row['longitude']);
-	//         	$UsersArray += array("{$row['phone_no']}" => $userData);
-	//         //}
- //        }
- //        var_dump( $UsersArray );
- //        die();
-	// }
 
 	/**
 	 ** Authorize using verification code and then change verification code
@@ -166,6 +143,56 @@ class DBFunctions {
 			}
 		}
 		return false;
+	}
+
+
+	/**
+	 ** Upadte GCM id in User tables after varification
+	 **/
+	public function setGCMIDForUser($PhoneNumber, $GCMID){
+		$PhoneNumber = "+" . $PhoneNumber;
+		$result = mysql_query("SELECT * FROM messiah_users WHERE phone_no = '{$PhoneNumber}'") or die(mysql_error());
+		// check for result 
+		$no_of_rows = mysql_num_rows($result);
+		if ($no_of_rows == 0) {
+			return false;
+		} else {
+			//Get verification code for the already existing record
+			if(!empty($GCMID)){
+				$query = "UPDATE messiah_users SET
+							gcm_id = '{$GCMID}'
+						  WHERE phone_no = '{$PhoneNumber}'";
+				$result = mysql_query($query);
+				if($result){
+					$message = array('message' => "Welcome to Messiah community");
+					$sendWelcomeMsg = $this->send_notification($GCMID, $message);
+				}
+				return true;
+			} else {
+				return false;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 ** Send Request to User using their GCM ID
+	 **/
+	public function sendGCMRequest($MyPhoneNumber, $HisPhoneNumber){
+		$MyPhoneNumber = "+" . $MyPhoneNumber;
+		$HisPhoneNumber = "+" . $HisPhoneNumber;
+		$getMyLocation = mysql_fetch_array(mysql_query("SELECT * FROM messiah_current_location WHERE phone_no = '{$MyPhoneNumber}'")) or die(mysql_error());
+		$MyLatitude = $getMyLocation['latitude'];
+		$MyLongitude = $getMyLocation['longitude'];
+
+		$getHisGCMID = mysql_fetch_array(mysql_query("SELECT * FROM messiah_users WHERE phone_no = '{$HisPhoneNumber}'")) or die(mysql_error());
+		$HisGCMID = $getHisGCMID['gcm_id'];
+
+		$message = array("message" => "Test Message");
+
+	    $result = $this->send_notification($HisGCMID, $message);
+
+	    return $result;
 	}
 	/**
 	 * Check user is existed or not
@@ -237,7 +264,47 @@ class DBFunctions {
 		$mi = round($dm, 9);
 		$km = round($dk, 9);
 
-		var_dump($km);
+		return $km;
 		
 	}
+
+	/**
+     * Sending Push Notification
+     */
+    function send_notification($ids, $data )
+	{
+		$url = 'https://android.googleapis.com/gcm/send';
+
+	    $post = array('registration_ids' => [$ids], 'data' => $data);
+
+	    var_dump(json_encode($post));
+	    $headers = array('Authorization: key=' . Config::$GOOGLE_API_KEY, 'Content-Type: application/json');
+	    $ch = curl_init();
+
+	    curl_setopt( $ch, CURLOPT_URL, $url );
+	    curl_setopt( $ch, CURLOPT_POST, true );
+	    curl_setopt( $ch, CURLOPT_HTTPHEADER, $headers );
+	    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+	    curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, false);
+	    curl_setopt( $ch, CURLOPT_POSTFIELDS, json_encode($post));
+
+	    $result = curl_exec( $ch );
+	    $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+	    if ( curl_errno( $ch ) )
+	    {
+	        echo 'GCM error: ' . curl_error( $ch );
+	    }
+
+	    curl_close( $ch );
+		
+		echo $status;
+        if($result == '')
+            echo "Empty Message";
+
+        $lines = explode("\n", $result);
+        $responseParts = explode('=', $lines[0]);
+
+		die(var_dump($responseParts));
+	    return $result;
+	}   
 }

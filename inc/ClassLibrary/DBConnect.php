@@ -2,7 +2,7 @@
   
   namespace ClassLibrary;
 
-  use ClassLibrary\Config;
+  use \ClassLibrary\Config;
 
   class DBConnect {
     // constructor
