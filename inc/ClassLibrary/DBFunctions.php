@@ -275,7 +275,7 @@ class DBFunctions {
 	{
 		$url = 'https://android.googleapis.com/gcm/send';
 
-	    $post = array('registration_ids' => [$ids], 'data' => $data);
+	    $post = array('registration_ids' => $ids, 'data' => $data);
 
 	    var_dump(json_encode($post));
 	    $headers = array('Authorization: key=' . Config::$GOOGLE_API_KEY, 'Content-Type: application/json');
