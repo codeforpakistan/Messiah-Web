@@ -24,7 +24,7 @@ namespace ClassLibrary;
 class GCMPushMessage {
 
 	var $url = 'https://android.googleapis.com/gcm/send';
-	var $serverApiKey = "";
+	var $serverApiKey = "AIzaSyDi5-Y4KmPIse4XyJOEjAp4i8ybOPl-v80";
 	var $devices = array();
 	
 	/*
@@ -74,6 +74,7 @@ class GCMPushMessage {
 				$fields['data'][$key] = $value;
 			}
 		}
+		var_dump($fields);
 
 		$headers = array( 
 			'Authorization: key=' . $this->serverApiKey,
@@ -97,7 +98,6 @@ class GCMPushMessage {
 		
 		// Close connection
 		curl_close($ch);
-		
 		return $result;
 	}
 	
