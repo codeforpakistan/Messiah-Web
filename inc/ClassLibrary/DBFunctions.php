@@ -4,7 +4,6 @@ namespace ClassLibrary;
 
 use \ClassLibrary\DBConnect;
 use \ClassLibrary\Config;
-use \ClassLibrary\GCMPushMessage;
 
 class DBFunctions {
 	private $db;
@@ -165,16 +164,16 @@ class DBFunctions {
 						  WHERE phone_no = '{$PhoneNumber}'";
 				$result = mysql_query($query);
 				if($result){
-					$message = "Welcome to Messiah community";
-					$devices = array($GCMID);
-					
-					$gcpm = new GCMPushMessage(Config::$GOOGLE_API_KEY);
-					$gcpm->setDevices($devices);
-					$response = $gcpm->send($message, array('testMessage' => 'Test title for GCM Android'));
-					die(var_dump($response));
-					// if($decodedResponse->failure > 0){
-					// 	return false;
-					// }
+					$message = array('message' => "Welcome to Messiah community");
+					$GCMIDs = array();
+					array_push($GCMIDs, urlencode($GCMID), urlencode($GCMID));
+					$sendWelcomeMsg = $this->send_notification($GCMIDs, $message);
+					$response = $this->send_notification($GCMIDs, $message);
+					$decodedResponse = json_decode($response);
+					var_dump($decodedResponse);
+					if($decodedResponse->failure > 0){
+						return false;
+					}
 					//var_dump($decodedResponse->failure);
 				}
 			} else {
@@ -277,4 +276,59 @@ class DBFunctions {
 		
 	}
 
+	/**
+     * Sending Push Notification
+     */
+ //    function send_notification($ids, $data )
+	// {
+	// 	$url = 'https://android.googleapis.com/gcm/send';
+
+	//     $post = array('registration_ids' => $ids, 'data' => $data);
+
+	//     $headers = array('Authorization: key=' . Config::$GOOGLE_API_KEY, 'Content-Type: application/json');
+	//     $ch = curl_init();
+
+	//     curl_setopt( $ch, CURLOPT_URL, $url );
+	//     curl_setopt( $ch, CURLOPT_POST, true );
+	//     curl_setopt( $ch, CURLOPT_HTTPHEADER, $headers );
+	//     curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+	//     curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, false);
+	//     curl_setopt( $ch, CURLOPT_POSTFIELDS, json_encode($post));
+
+	//     $result = curl_exec( $ch );
+	//     $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+	//     if ( curl_errno( $ch ) )
+	//     {
+	//         echo 'GCM error: ' . curl_error( $ch );
+	//     }
+
+	//     curl_close( $ch );
+	// 	echo $status;
+ //        if($result == '')
+ //            echo "Empty Message";
+
+	// 	die(var_dump($result));
+	//     return $result;
+	// }   
+
+	function send_notification( $registrationIdsArray, $messageData )
+	{   
+		$headers = array("Content-Type:" . "application/json", "Authorization:" . "key=" . Config::$GOOGLE_API_KEY);
+	    $data = array(
+	        'data' => $messageData,
+	        'registration_ids' => $registrationIdsArray
+	    );
+	 	$ch = curl_init();
+	 
+	    curl_setopt( $ch, CURLOPT_HTTPHEADER, $headers ); 
+	    curl_setopt( $ch, CURLOPT_URL, "https://android.googleapis.com/gcm/send" );
+	    curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, 0 );
+	    curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, 0 );
+	    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+	    curl_setopt( $ch, CURLOPT_POSTFIELDS, json_encode($data) );
+	 
+	    $response = curl_exec($ch);
+	    curl_close($ch);
+	    return $response;
+	}
 }
