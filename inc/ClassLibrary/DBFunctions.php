@@ -170,6 +170,7 @@ class DBFunctions {
 					$sendWelcomeMsg = $this->send_notification($GCMIDs, $message);
 					$response = $this->send_notification($GCMIDs, $message);
 					$decodedResponse = json_decode($response);
+					var_dump($decodedResponse);
 					if($decodedResponse->failure > 0){
 						return false;
 					}
@@ -317,8 +318,7 @@ class DBFunctions {
 	        'data' => $messageData,
 	        'registration_ids' => $registrationIdsArray
 	    );
-	 
-	    $ch = curl_init();
+	 	$ch = curl_init();
 	 
 	    curl_setopt( $ch, CURLOPT_HTTPHEADER, $headers ); 
 	    curl_setopt( $ch, CURLOPT_URL, "https://android.googleapis.com/gcm/send" );
@@ -329,7 +329,6 @@ class DBFunctions {
 	 
 	    $response = curl_exec($ch);
 	    curl_close($ch);
-	 
 	    return $response;
 	}
 }
