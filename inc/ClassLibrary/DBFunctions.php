@@ -151,7 +151,7 @@ class DBFunctions {
 	 **/
 	public function setGCMIDForUser($PhoneNumber, $GCMID){
 		$PhoneNumber = "+" . $PhoneNumber;
-		$result = mysql_query("SELECT * FROM messiah_users WHERE phone_no = '{$PhoneNumber}'") or die(mysql_error());
+		$result = @mysql_query("SELECT * FROM messiah_users WHERE phone_no = '{$PhoneNumber}'") or die(mysql_error());
 		// check for result 
 		$no_of_rows = mysql_num_rows($result);
 		if ($no_of_rows == 0) {
@@ -165,9 +165,16 @@ class DBFunctions {
 				$result = mysql_query($query);
 				if($result){
 					$message = array('message' => "Welcome to Messiah community");
-					$sendWelcomeMsg = $this->send_notification($GCMID, $message);
+					$GCMIDs = array();
+					array_push($GCMIDs, urlencode($GCMID), urlencode($GCMID));
+					$sendWelcomeMsg = $this->send_notification($GCMIDs, $message);
+					$response = $this->send_notification($GCMIDs, $message);
+					$decodedResponse = json_decode($response);
+					if($decodedResponse->failure > 0){
+						return false;
+					}
+					//var_dump($decodedResponse->failure);
 				}
-				return true;
 			} else {
 				return false;
 			}
@@ -271,40 +278,58 @@ class DBFunctions {
 	/**
      * Sending Push Notification
      */
-    function send_notification($ids, $data )
-	{
-		$url = 'https://android.googleapis.com/gcm/send';
+ //    function send_notification($ids, $data )
+	// {
+	// 	$url = 'https://android.googleapis.com/gcm/send';
 
-	    $post = array('registration_ids' => $ids, 'data' => $data);
+	//     $post = array('registration_ids' => $ids, 'data' => $data);
 
-	    var_dump(json_encode($post));
-	    $headers = array('Authorization: key=' . Config::$GOOGLE_API_KEY, 'Content-Type: application/json');
+	//     $headers = array('Authorization: key=' . Config::$GOOGLE_API_KEY, 'Content-Type: application/json');
+	//     $ch = curl_init();
+
+	//     curl_setopt( $ch, CURLOPT_URL, $url );
+	//     curl_setopt( $ch, CURLOPT_POST, true );
+	//     curl_setopt( $ch, CURLOPT_HTTPHEADER, $headers );
+	//     curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+	//     curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, false);
+	//     curl_setopt( $ch, CURLOPT_POSTFIELDS, json_encode($post));
+
+	//     $result = curl_exec( $ch );
+	//     $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+	//     if ( curl_errno( $ch ) )
+	//     {
+	//         echo 'GCM error: ' . curl_error( $ch );
+	//     }
+
+	//     curl_close( $ch );
+	// 	echo $status;
+ //        if($result == '')
+ //            echo "Empty Message";
+
+	// 	die(var_dump($result));
+	//     return $result;
+	// }   
+
+	function send_notification( $registrationIdsArray, $messageData )
+	{   
+		$headers = array("Content-Type:" . "application/json", "Authorization:" . "key=" . Config::$GOOGLE_API_KEY);
+	    $data = array(
+	        'data' => $messageData,
+	        'registration_ids' => $registrationIdsArray
+	    );
+	 
 	    $ch = curl_init();
-
-	    curl_setopt( $ch, CURLOPT_URL, $url );
-	    curl_setopt( $ch, CURLOPT_POST, true );
-	    curl_setopt( $ch, CURLOPT_HTTPHEADER, $headers );
+	 
+	    curl_setopt( $ch, CURLOPT_HTTPHEADER, $headers ); 
+	    curl_setopt( $ch, CURLOPT_URL, "https://android.googleapis.com/gcm/send" );
+	    curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, 0 );
+	    curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, 0 );
 	    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-	    curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, false);
-	    curl_setopt( $ch, CURLOPT_POSTFIELDS, json_encode($post));
-
-	    $result = curl_exec( $ch );
-	    $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-	    if ( curl_errno( $ch ) )
-	    {
-	        echo 'GCM error: ' . curl_error( $ch );
-	    }
-
-	    curl_close( $ch );
-		
-		echo $status;
-        if($result == '')
-            echo "Empty Message";
-
-        $lines = explode("\n", $result);
-        $responseParts = explode('=', $lines[0]);
-
-		die(var_dump($responseParts));
-	    return $result;
-	}   
+	    curl_setopt( $ch, CURLOPT_POSTFIELDS, json_encode($data) );
+	 
+	    $response = curl_exec($ch);
+	    curl_close($ch);
+	 
+	    return $response;
+	}
 }
