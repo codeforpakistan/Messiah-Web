@@ -170,11 +170,11 @@ class DBFunctions {
 					$sendWelcomeMsg = $this->send_notification($GCMIDs, $message);
 					$response = $this->send_notification($GCMIDs, $message);
 					$decodedResponse = json_decode($response);
-					var_dump($decodedResponse);
-					if($decodedResponse->failure > 0){
+					if($decodedResponse->success == 0){
+						return true;
+					} elseif ($decodedResponse->failure > 0) {
 						return false;
 					}
-					//var_dump($decodedResponse->failure);
 				}
 			} else {
 				return false;
@@ -196,11 +196,17 @@ class DBFunctions {
 		$getHisGCMID = mysql_fetch_array(mysql_query("SELECT * FROM messiah_users WHERE phone_no = '{$HisPhoneNumber}'")) or die(mysql_error());
 		$HisGCMID = $getHisGCMID['gcm_id'];
 
-		$message = array("message" => "Test Message");
-
-	    $result = $this->send_notification($HisGCMID, $message);
-
-	    return $result;
+		$message = array('message' => "I need help");
+		$GCMIDs = array();
+		array_push($GCMIDs, urlencode($GCMID), urlencode($GCMID));
+		$sendWelcomeMsg = $this->send_notification($GCMIDs, $message);
+		$response = $this->send_notification($GCMIDs, $message);
+		$decodedResponse = json_decode($response);
+		if($decodedResponse->success == 0){
+			return true;
+		} elseif ($decodedResponse->failure > 0) {
+			return false;
+		}
 	}
 	/**
 	 * Check user is existed or not
@@ -311,7 +317,7 @@ class DBFunctions {
 	//     return $result;
 	// }   
 
-	private function send_notification( $registrationIdsArray, $messageData )
+	function send_notification( $registrationIdsArray, $messageData )
 	{   
 		$headers = array("Content-Type:" . "application/json", "Authorization:" . "key=" . Config::$GOOGLE_API_KEY);
 	    $data = array(
