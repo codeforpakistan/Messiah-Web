@@ -8,5 +8,5 @@
       public static $DB_PASS = "";
       public static $MESSIAH_DB = "messiah";
 
-      public static $GOOGLE_API_KEY = "AIzaSyDi5-Y4KmPIse4XyJOEjAp4i8ybOPl-v80"; // Place your Google API Key
+      public static $GOOGLE_API_KEY = "AIzaSyDE_ntZqfy1E2HRZ6jOfZZKYe7M7WJyT7Q"; // Place your Google API Key
   }
