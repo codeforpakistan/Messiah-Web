@@ -311,7 +311,7 @@ class DBFunctions {
 	//     return $result;
 	// }   
 
-	function send_notification( $registrationIdsArray, $messageData )
+	private function send_notification( $registrationIdsArray, $messageData )
 	{   
 		$headers = array("Content-Type:" . "application/json", "Authorization:" . "key=" . Config::$GOOGLE_API_KEY);
 	    $data = array(
