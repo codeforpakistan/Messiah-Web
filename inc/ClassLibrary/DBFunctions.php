@@ -56,7 +56,7 @@ class DBFunctions {
 		$textmessage = "Your Verification Code is : \n{$verificationCode}";
 		$smileAPIObject = new \ClassLibrary\SmileAPI();
 		$smileAPIObject->get_session();
-		$smileAPIObject->send_sms($PhoneNumber, '8333', $textmessage);
+		$resultsms = $smileAPIObject->send_sms($PhoneNumber, '8333', $textmessage);
 		return true;
 	}
 
@@ -198,7 +198,7 @@ class DBFunctions {
 
 		$message = array('message' => "I need help");
 		$GCMIDs = array();
-		array_push($GCMIDs, urlencode($HisGCMID));
+		array_push($GCMIDs, urlencode($GCMID), urlencode($GCMID));
 		$sendWelcomeMsg = $this->send_notification($GCMIDs, $message);
 		$response = $this->send_notification($GCMIDs, $message);
 		$decodedResponse = json_decode($response);

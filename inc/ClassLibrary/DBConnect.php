@@ -18,7 +18,7 @@
     // Connecting to database
     public function connect() {
       // connecting to mysql
-      $con = @mysql_connect(Config::$DB_SERVER, Config::$DB_USER, Config::$DB_PASS);
+      $con = mysql_connect(Config::$DB_SERVER, Config::$DB_USER, Config::$DB_PASS) or die(mysql_error());
       // selecting database
       if($con){
         mysql_select_db(Config::$MESSIAH_DB);
