@@ -198,7 +198,7 @@ class DBFunctions {
 
 		$message = array('message' => "I need help");
 		$GCMIDs = array();
-		array_push($GCMIDs, urlencode($GCMID), urlencode($GCMID));
+		array_push($GCMIDs, urlencode($HisGCMID));
 		$sendWelcomeMsg = $this->send_notification($GCMIDs, $message);
 		$response = $this->send_notification($GCMIDs, $message);
 		$decodedResponse = json_decode($response);
