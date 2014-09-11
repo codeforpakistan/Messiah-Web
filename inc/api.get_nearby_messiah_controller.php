@@ -20,7 +20,6 @@ require 'autoload.php';
   	$db = @new \ClassLibrary\DBFunctions();
 
 	// response Array
-  	$response = array("Status" => 0);
   	$currentLocation = NULL;
 
 	// Update Current Location
@@ -28,14 +27,13 @@ require 'autoload.php';
 
 	//Get Nearby Messiahs here
   	$NearbyMessiah = $db->getNearbyMessiah($PhoneNumber, $Latitude, $Longitude);
-
+    
   	if ($currentLocation != false && !empty($NearbyMessiah)) {
   		echo json_encode($NearbyMessiah);
   	} else {
-	  // Location not Updated
-	  // echo json with error = 1
-  		$response["Status"] = 0;
-  		echo json_encode($response);
+	  	// Location not Updated
+	  	// echo json with error = 1
+      	echo json_encode($NearbyMessiah);
   	}
   } else {
   	echo "Access Denied";

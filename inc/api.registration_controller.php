@@ -1,5 +1,5 @@
 <?php
-
+  
   require 'autoload.php';
   /* --------------------------------------
   /* File to handle all API requests
