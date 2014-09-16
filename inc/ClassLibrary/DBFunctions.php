@@ -155,7 +155,7 @@ class DBFunctions {
 		// check for result 
 		$no_of_rows = mysql_num_rows($result);
 		if ($no_of_rows == 0) {
-			return false;
+			//return false;
 		} else {
 			//Get verification code for the already existing record
 			if(!empty($GCMID)){
@@ -164,20 +164,22 @@ class DBFunctions {
 						  WHERE phone_no = '{$PhoneNumber}'";
 				$result = mysql_query($query);
 				if($result){
-					$message = array('message' => "Welcome to Messiah community");
+					$message = array('message' => "Welcome to Messiah Community");
 					$GCMIDs = array();
-					array_push($GCMIDs, urlencode($GCMID), urlencode($GCMID));
+					array_push($GCMIDs, urlencode($GCMID));
 					$sendWelcomeMsg = $this->send_notification($GCMIDs, $message);
-					$response = $this->send_notification($GCMIDs, $message);
-					$decodedResponse = json_decode($response);
-					if($decodedResponse->success == 0){
+					//var_dump($sendWelcomeMsg);
+					//die();
+					$decodedResponse = json_decode($sendWelcomeMsg);
+					if($decodedResponse->success == 1){
 						return true;
+
 					} elseif ($decodedResponse->failure > 0) {
-						return false;
+						// return false;
 					}
 				}
 			} else {
-				return false;
+				// return false;
 			}
 		}
 		return false;
