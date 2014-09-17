@@ -5,7 +5,7 @@
   class Config {
       public static $DB_SERVER = "localhost";
       public static $DB_USER = "root";
-      public static $DB_PASS = "";
+      public static $DB_PASS = "password";
       public static $MESSIAH_DB = "messiah";
 
       // public static $URL = parse_url(getenv("CLEARDB_DATABASE_URL"));

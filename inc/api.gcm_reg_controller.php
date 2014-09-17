@@ -20,7 +20,6 @@
 
     // response Array
     $response = array("Status" => 0);
-
     // check for user
     $setGCM = $db->setGCMIDForUser($PhoneNumber, $GCMID);
 	if ($setGCM != false) {

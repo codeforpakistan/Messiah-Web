@@ -155,7 +155,7 @@ class DBFunctions {
 		// check for result 
 		$no_of_rows = mysql_num_rows($result);
 		if ($no_of_rows == 0) {
-			//return false;
+			return false;
 		} else {
 			//Get verification code for the already existing record
 			if(!empty($GCMID)){
@@ -164,22 +164,21 @@ class DBFunctions {
 						  WHERE phone_no = '{$PhoneNumber}'";
 				$result = mysql_query($query);
 				if($result){
-					$message = array('message' => "Welcome to Messiah Community");
+					$message = array('Status' => 0,
+									 'Message' => "Welcome to Messiah Community"
+									);
 					$GCMIDs = array();
 					array_push($GCMIDs, urlencode($GCMID));
 					$sendWelcomeMsg = $this->send_notification($GCMIDs, $message);
-					//var_dump($sendWelcomeMsg);
-					//die();
 					$decodedResponse = json_decode($sendWelcomeMsg);
-					if($decodedResponse->success == 1){
+					if($decodedResponse->failure > 0){
+						return false;
+					} elseif ($decodedResponse->success == 1) {
 						return true;
-
-					} elseif ($decodedResponse->failure > 0) {
-						// return false;
 					}
 				}
 			} else {
-				// return false;
+				return false;
 			}
 		}
 		return false;
@@ -191,24 +190,52 @@ class DBFunctions {
 	public function sendGCMRequest($MyPhoneNumber, $HisPhoneNumber){
 		$MyPhoneNumber = "+" . $MyPhoneNumber;
 		$HisPhoneNumber = "+" . $HisPhoneNumber;
+		$getMyName = mysql_fetch_array(mysql_query("SELECT * FROM messiah_users WHERE phone_no = '{$MyPhoneNumber}'")) or die(mysql_error());
 		$getMyLocation = mysql_fetch_array(mysql_query("SELECT * FROM messiah_current_location WHERE phone_no = '{$MyPhoneNumber}'")) or die(mysql_error());
 		$MyLatitude = $getMyLocation['latitude'];
 		$MyLongitude = $getMyLocation['longitude'];
+		$MyName = $getMyName['full_name'];
 
 		$getHisGCMID = mysql_fetch_array(mysql_query("SELECT * FROM messiah_users WHERE phone_no = '{$HisPhoneNumber}'")) or die(mysql_error());
 		$HisGCMID = $getHisGCMID['gcm_id'];
 
-		$message = array('message' => "I need help");
+		$message = array('Status' => 1,
+						 'Message' => $MyName . " Needs Help!",
+						 'PhoneNumber' => $MyPhoneNumber,
+						 'Latitude' => $MyLatitude,
+						 'Longitude' => $MyLongitude
+						);
 		$GCMIDs = array();
-		array_push($GCMIDs, urlencode($GCMID), urlencode($GCMID));
-		$sendWelcomeMsg = $this->send_notification($GCMIDs, $message);
-		$response = $this->send_notification($GCMIDs, $message);
-		$decodedResponse = json_decode($response);
-		if($decodedResponse->success == 0){
-			return true;
-		} elseif ($decodedResponse->failure > 0) {
+		array_push($GCMIDs, urlencode($HisGCMID));
+		$sendMsg = $this->send_notification($GCMIDs, $message);
+		$decodedResponse = json_decode($sendMsg);
+		if($decodedResponse->failure > 0){
 			return false;
+		} elseif ($decodedResponse->success == 1) {
+			return true;
 		}
+	}
+
+	/**
+	 ** Send Tip of the day
+	 **/
+	public function sendTipOfTheDay($Tip){
+		$GCMIDs = mysql_query("SELECT gcm_id FROM messiah_users");
+		$allGCMIDs = array();
+		while ($getGCMIDs = mysql_fetch_array($GCMIDs)) {
+			array_push($allGCMIDs, urlencode($getGCMIDs['gcm_id']));
+		}
+		$message = array('Status' => 2,
+						 'Message' => $Tip
+						);
+		$sendMsg = $this->send_notification($allGCMIDs, $message);
+		$decodedResponse = json_decode($sendMsg);
+		if($decodedResponse->failure > 0){
+			return false;
+		} elseif ($decodedResponse->success >= 1 && $decodedResponse->failure == 0) {
+			return true;
+		}
+		
 	}
 	/**
 	 * Check user is existed or not
@@ -287,37 +314,6 @@ class DBFunctions {
 	/**
      * Sending Push Notification
      */
- //    function send_notification($ids, $data )
-	// {
-	// 	$url = 'https://android.googleapis.com/gcm/send';
-
-	//     $post = array('registration_ids' => $ids, 'data' => $data);
-
-	//     $headers = array('Authorization: key=' . Config::$GOOGLE_API_KEY, 'Content-Type: application/json');
-	//     $ch = curl_init();
-
-	//     curl_setopt( $ch, CURLOPT_URL, $url );
-	//     curl_setopt( $ch, CURLOPT_POST, true );
-	//     curl_setopt( $ch, CURLOPT_HTTPHEADER, $headers );
-	//     curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-	//     curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, false);
-	//     curl_setopt( $ch, CURLOPT_POSTFIELDS, json_encode($post));
-
-	//     $result = curl_exec( $ch );
-	//     $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-	//     if ( curl_errno( $ch ) )
-	//     {
-	//         echo 'GCM error: ' . curl_error( $ch );
-	//     }
-
-	//     curl_close( $ch );
-	// 	echo $status;
- //        if($result == '')
- //            echo "Empty Message";
-
-	// 	die(var_dump($result));
-	//     return $result;
-	// }   
 
 	function send_notification( $registrationIdsArray, $messageData )
 	{   
@@ -326,13 +322,14 @@ class DBFunctions {
 	        'data' => $messageData,
 	        'registration_ids' => $registrationIdsArray
 	    );
-	 	$ch = curl_init();
-	 
-	    curl_setopt( $ch, CURLOPT_HTTPHEADER, $headers ); 
+	    $ch = curl_init();
+
 	    curl_setopt( $ch, CURLOPT_URL, "https://android.googleapis.com/gcm/send" );
-	    curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, 0 );
-	    curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, 0 );
+	    curl_setopt( $ch, CURLOPT_POST, true);
+	    curl_setopt( $ch, CURLOPT_HTTPHEADER, $headers );
 	    curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+	    curl_setopt( $ch, CURLOPT_SSL_VERIFYHOST, false );
+	    curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );
 	    curl_setopt( $ch, CURLOPT_POSTFIELDS, json_encode($data) );
 	 
 	    $response = curl_exec($ch);
