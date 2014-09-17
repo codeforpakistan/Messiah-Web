@@ -10,10 +10,9 @@
 	/* --------------------------------------
 	/* check for POST request 
 	/*/
-	if ((isset($_GET['MyPhoneNumber']) && $_GET['MyPhoneNumber'] != '') && (isset($_GET['HisPhoneNumber']) && $_GET['HisPhoneNumber'] != '')) {
+	if (isset($_GET['Tip']) && $_GET['Tip'] != '') {
 	    // get tag
-	  	$MyPhoneNumber = $_GET['MyPhoneNumber'];
-	  	$HisPhoneNumber = $_GET['HisPhoneNumber'];
+	  	$Tip = $_GET['Tip'];
 
 	    // include db handler
 	  	$db = new \ClassLibrary\DBFunctions();
@@ -22,7 +21,7 @@
 	  	$response = array("Status" => 0);
 
 	    // check for user
-	  	$GCMRequest = $db->sendGCMRequest($MyPhoneNumber, $HisPhoneNumber);
+	  	$GCMRequest = $db->sendTipOfTheDay($Tip);
 	  	if ($GCMRequest != false) {
 			// user found
 			// echo json with success = 1
