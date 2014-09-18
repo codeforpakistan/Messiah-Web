@@ -117,7 +117,7 @@
 				</div>
 				<div id="accident-mode" class="row panel radius">
 					<div class="large-9 columns">
-						<h4>Saftey tip of the day</h4><hr>
+						<h4>Safety tip of the day</h4><hr>
 						<p>Keep your senses sharp by receiving daily tips on keeping yourself and your neighbourhood safe. These simple tips can help you in your daily routines to be alert and keeping yourself and those around you away from harm.</p>
 					</div>
 					<div class="large-3 columns"><img src="img/feature-5.png" width="400" height="400"></div>
